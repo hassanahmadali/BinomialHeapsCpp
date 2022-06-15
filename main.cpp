@@ -16,51 +16,45 @@ private:
 	node* Hr;
 	int count;
 public:
-	node* Initializeheap();
+	node* Initializeheap() {
+		node* np;
+		np = nullptr;
+		return np;
+	}
 
-	int Binomial_link(node*, node*);
+	int Binomial_link(node* y, node* z) {
+		y->parent = z;
+		y->sibling = z->child;
+		z->child = y;
+		z->degree = z->degree + 1;
+	}
 
-	node* Create_node(int);
+	node* Create_node(int k) {
+		node* p = new node;
+		p->n = k;
+		return p;
+	}
 
-	node* Union(node*, node*);
+	node* Union(node* H1, node* H2);
 
-	node* Insert(node*, node*);
+	node* Insert(node* H, node* x);
 
-	node* Merge(node*, node*);
+	node* Merge(node* H1, node* H2);
 
-	node* Extract_Min(node*);
+	node* Extract_Min(node* H1);
 
-	int Revert_list(node*);
+	int Revert_list(node* y);
 
-	int Display(node*);
+	int Display(node* H);
 
-	node* Search(node*, int);
+	node* Search(node* H, int k);
 
-	int Decrease_key(node*, int, int);
+	int Decrease_key(node* H, int i, int k);
 
-	int Delete(node*, int);
+	int Delete(node* H, int k);
 
 	BinomialHeap();
 };
-
-node* BinomialHeap::Initializeheap() {
-	node* np;
-	np = nullptr;
-	return np;
-}
-
-int BinomialHeap::Binomial_link(node* y, node* z) {
-	y->parent = z;
-	y->sibling = z->child;
-	z->child = y;
-	z->degree = z->degree + 1;
-}
-
-node* BinomialHeap::Create_node(int k) {
-	node* p = new node;
-	p->n = k;
-	return p;
-}
 
 node* BinomialHeap::Insert(node* H, node* x) {
 	node* H1 = Initializeheap();
