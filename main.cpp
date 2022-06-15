@@ -62,9 +62,6 @@ node* BinomialHeap::Create_node(int k) {
 	return p;
 }
 
-/*
- * Insert Nodes in Binomial Heap
- */
 node* BinomialHeap::Insert(node* H, node* x) {
 	node* H1 = Initializeheap();
 	x->parent = nullptr;
